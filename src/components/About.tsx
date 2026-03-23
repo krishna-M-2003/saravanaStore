@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Heart } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const stats = [
@@ -25,25 +26,22 @@ export default function About() {
           >
             {/* The Cinematic Store Image */}
             <div className="relative aspect-[4/5] overflow-hidden border border-primary/10">
-              <img
+              <Image
                 src="/about_luxury_store.png"
                 alt="Sri Saravana Stores interior"
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=800&h=1000";
-                }}
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-black/10" />
               
               {/* Elegant floating branded badge */}
               <div className="absolute bottom-8 right-8 bg-white shadow-2xl p-6 md:p-8 flex flex-col items-center justify-center border border-white/40">
-                <img 
+                <Image 
                   src="/top_logo.png" 
                   alt="Sri Saravana Stores Logo" 
+                  width={150}
+                  height={80}
                   className="h-16 md:h-20 w-auto object-contain flex-shrink-0 drop-shadow-sm mb-3"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
                 />
                 <p className="text-primary font-serif font-bold text-sm text-center leading-tight mb-2">Sri Saravana Stores</p>
                 <div className="w-8 h-[1px] bg-primary mb-2" />

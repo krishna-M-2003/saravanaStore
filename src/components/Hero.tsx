@@ -31,7 +31,7 @@ export default function Hero() {
           >
             <div className="w-12 h-[1px] bg-accent" />
             <span className="text-accent font-sans text-xs uppercase tracking-[0.3em] font-semibold">
-              Thevaram's Premier Market
+              Thevaram&apos;s Premier Market
             </span>
           </motion.div>
 

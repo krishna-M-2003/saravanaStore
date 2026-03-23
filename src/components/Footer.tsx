@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,13 +13,12 @@ export default function Footer() {
           <div className="space-y-6">
             <Link href="#home" className="flex items-center gap-4">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center p-1.5 flex-shrink-0 shadow-lg">
-                <img 
+                <Image 
                   src="/pro_logo.png" 
                   alt="Sri Saravana Stores Logo" 
+                  width={56}
+                  height={56}
                   className="w-full h-full object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }} 
                 />
               </div>
               <span className="font-serif italic text-2xl tracking-tight text-white hover:text-accent transition-colors">

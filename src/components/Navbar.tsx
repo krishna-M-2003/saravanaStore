@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -42,13 +43,12 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 flex-shrink-0 shadow-lg border border-primary/5">
-              <img 
+              <Image 
                 src="/pro_logo.png" 
                 alt="Sri Saravana Stores Logo" 
+                width={48}
+                height={48}
                 className="w-full h-full object-contain mix-blend-multiply flex-shrink-0"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/100x100?text=Logo';
-                }} 
               />
             </div>
             <span className={`font-serif text-xl sm:text-2xl tracking-wide flex-shrink-0 transition-colors duration-500 ${isScrolled ? "text-primary-dark" : "text-white drop-shadow-md"}`}>
