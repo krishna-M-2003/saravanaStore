@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --font-serif: var(--font-serif);
+}
+
+:root {
+  /* Ultra-Luxury Palette */
+  --background: #FCFAF8; /* Warm cream */
+  --foreground: #1A1A1A; /* Deep soft black */
+  --primary: #0A3622; /* Rich Forest Green */
+  --primary-light: #185E3E; /* Lighter Forest */
+  --primary-dark: #052214; /* Deepest Forest */
+  --accent: #D4AF37; /* Metallic Gold */
+  --accent-light: #F3E5AB; /* Soft Champagne Gold */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom premium styling */
+.glass-effect {
+  background: rgba(252, 250, 248, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(10, 54, 34, 0.05);
+}
+
+.luxury-shadow {
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
