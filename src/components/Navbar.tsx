@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 py-3 shadow-sm"
           : "bg-gradient-to-b from-black/50 to-transparent py-5"
       }`}
@@ -40,6 +40,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="#home"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="flex items-center gap-3"
           >
             <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center p-1.5 flex-shrink-0 shadow-lg border border-primary/5">
@@ -51,7 +52,7 @@ export default function Navbar() {
                 className="w-full h-full object-contain mix-blend-multiply flex-shrink-0"
               />
             </div>
-            <span className={`font-serif text-xl sm:text-2xl tracking-wide flex-shrink-0 transition-colors duration-500 ${isScrolled ? "text-primary-dark" : "text-white drop-shadow-md"}`}>
+            <span className={`font-serif text-xl sm:text-2xl tracking-wide flex-shrink-0 transition-colors duration-500 ${isScrolled || isMobileMenuOpen ? "text-primary-dark" : "text-white drop-shadow-md"}`}>
               Sri Saravana Stores
             </span>
           </Link>
@@ -59,7 +60,7 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className={`text-sm font-sans uppercase tracking-[0.15em] relative group transition-colors duration-300 ${
@@ -68,7 +69,7 @@ export default function Navbar() {
               >
                 {link.name}
                 <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -90,7 +91,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`lg:hidden p-2 transition-colors ${
-              isScrolled ? "text-foreground" : "text-white"
+              isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
             }`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,17 +110,18 @@ export default function Navbar() {
           >
             <nav className="flex flex-col px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-foreground text-sm uppercase tracking-[0.15em] font-medium p-3 hover:bg-primary/5 rounded-lg transition-colors border-l-2 border-transparent hover:border-accent"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <a
                 href="tel:+919566520607"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="mt-4 flex items-center justify-center gap-2 bg-primary text-white p-4 rounded-xl font-bold uppercase tracking-widest text-xs"
               >
                 Call: 095665 20607
